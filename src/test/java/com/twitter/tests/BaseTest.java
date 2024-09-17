@@ -29,7 +29,7 @@ public class BaseTest {
             capabilities.setCapability("appium:appWaitActivity", "com.twitter.android.*");
 
             // Inicializa el driver
-            driver = new AndroidDriver<>(new URL("http://127.0.0.1:4733/wd/hub"), capabilities);
+            driver = new AndroidDriver<>(new URL("http://127.0.0.1:4740/wd/hub"), capabilities);
             System.out.println("El driver de Appium se ha configurado correctamente.");
         }
     }

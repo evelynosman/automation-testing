@@ -1,47 +1,89 @@
 package com.twitter.tests;
 
 import com.twitter.pages.TrendingPage;
-import static org.junit.Assume.assumeTrue;
-
+import io.appium.java_client.MobileElement;
+import io.appium.java_client.TouchAction;
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.touch.WaitOptions;
+import io.appium.java_client.touch.offset.PointOption;
 import org.junit.Test;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assume.assumeTrue;
+
 public class TwitterNavigationTest extends BaseTest {
 
-    private TrendingPage trendingPage; // Ya no es necesario inicializar el driver aquí, ya se hereda de BaseTest
+    private TrendingPage trendingPage;
 
     @Test
-    public void testNavigateToTrending() {
+    public void testNavigateToTrendingWithScrollAndLike() throws InterruptedException {
         // Verifica que el login fue exitoso antes de continuar
         assumeTrue(TwitterLoginTest.isLoginSuccessful);
 
         System.out.println("Iniciando prueba de navegación a la sección de Tendencias...");
 
-        // Inicializa la página de TrendingPage
         trendingPage = new TrendingPage(driver);
-
-        // Inicializa WebDriverWait con el driver compartido
         WebDriverWait wait = new WebDriverWait(driver, 20);
 
         try {
-            // Encuentra y hace clic en el botón de "Buscar y explorar" usando AccessibilityId
             WebElement searchExploreButton = driver.findElementByAccessibilityId("Buscar y explorar");
             searchExploreButton.click();
 
-            // Espera a que se cargue el encabezado de tendencias
             wait.until(ExpectedConditions.visibilityOf(trendingPage.getTrendingHeader()));
 
-            // Verifica si la página de Tendencias se ha cargado y realiza la acción
-            if (trendingPage.isTrendingPageLoaded()) {
-                trendingPage.clickOnSecondTrendingItem();
-                System.out.println("Navegación a Tendencias completada.");
-            } else {
-                System.err.println("No se pudo cargar la sección de Tendencias.");
-            }
+            performVerticalScroll();
+
+            WebElement secondTrendingItem = driver.findElement(By.xpath("//androidx.recyclerview.widget.RecyclerView[@resource-id='android:id/list']/android.view.ViewGroup[2]"));
+            secondTrendingItem.click();
+
+            Thread.sleep(10000);
+
+            wait.until(ExpectedConditions.presenceOfElementLocated(By.id("com.twitter.android:id/outer_layout_row_view_tweet")));
+
+            System.out.println("Página de tendencia cargada correctamente.");
+
+            performVerticalScroll();
+            Thread.sleep(5000);
+            performVerticalScroll();
+
+            WebElement randomItem = driver.findElement(By.xpath("//androidx.recyclerview.widget.RecyclerView[@resource-id='android:id/list']/android.view.ViewGroup[1]"));
+            randomItem.click();
+
+            Thread.sleep(10000);
+            WebElement tweetElement = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("com.twitter.android:id/outer_layout_row_view_tweet")));
+            assertTrue("El tweet no se ha cargado correctamente", tweetElement.isDisplayed());
+
+            WebElement likeButton = driver.findElementByAccessibilityId("Me gusta");
+            likeButton.click();
+
+            WebElement likedElement = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("com.twitter.android:id/inline_like")));
+            assertTrue("El tweet no ha recibido el 'Me gusta' correctamente", likedElement.isDisplayed());
+
+            System.out.println("El tweet ha recibido el 'Me gusta' correctamente.");
+            
         } catch (Exception e) {
-            System.err.println("Error durante la prueba de navegación a Tendencias: " + e.getMessage());
+            System.err.println("Error durante la prueba de navegación y 'Me gusta': " + e.getMessage());
         }
+    }
+
+    private void performVerticalScroll() {
+        int startX = 300;
+        int startY = 1300;
+        int endY = 200;
+
+        // gesto de desplazamiento con TouchAction
+        new TouchAction<>(driver)
+                .press(PointOption.point(startX, startY))
+                .waitAction(WaitOptions.waitOptions(Duration.ofSeconds(1)))
+                .moveTo(PointOption.point(startX, endY))
+                .release()
+                .perform();
+
+        System.out.println("Scroll vertical realizado.");
     }
 }
