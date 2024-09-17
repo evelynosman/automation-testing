@@ -10,43 +10,53 @@ public class LoginPage {
 
     private AndroidDriver<MobileElement> driver;
 
-    // Elemento del modal de Google
     @FindBy(id = "com.google.android.gms:id/design_bottom_sheet")
     private WebElement googleModal;
 
-    // Botón de cancelar en el modal
     @FindBy(id = "com.google.android.gms:id/cancel")
     private WebElement cancelButton;
 
-    // Pantalla de inicio de sesión en Twitter
-    @FindBy(id = "com.twitter.android:id/scroll_view_cta")
-    private WebElement loginScreen;
+    @FindBy(id = "com.twitter.android:id/ocf_text_input_edit")
+    private WebElement usernameInput;
+
+    @FindBy(id = "com.twitter.android:id/password_edit_text")
+    private WebElement passwordInput;
+
+    @FindBy(xpath = "//android.widget.TextView[@text='Iniciar sesión']")
+    private WebElement loginButton;
+
+    @FindBy(id = "com.twitter.android:id/cta_button")
+    private WebElement nextButton;
 
     public LoginPage(AndroidDriver<MobileElement> driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
 
-    // Método para verificar si el modal de Google está presente
-    public boolean isGoogleModalPresent() {
-        try {
-            return googleModal.isDisplayed();
-        } catch (Exception e) {
-            return false;
+    // Método para cerrar el modal de Google
+    public void closeGoogleModal() {
+        if (googleModal.isDisplayed()) {
+            cancelButton.click();
         }
     }
 
-    // Método para hacer clic en el botón cancelar del modal
-    public void clickCancelOnGoogleModal() {
-        cancelButton.click();
+    // Método para ingresar el nombre de usuario
+    public void enterUsername(String username) {
+        usernameInput.sendKeys(username);
     }
 
-    // Método para verificar si la pantalla de inicio de sesión está presente
-    public boolean isLoginScreenDisplayed() {
-        try {
-            return loginScreen.isDisplayed();
-        } catch (Exception e) {
-            return false;
-        }
+    // Método para ingresar la contraseña
+    public void enterPassword(String password) {
+        passwordInput.sendKeys(password);
+    }
+
+    // Método para hacer clic en el botón de 'Iniciar sesión'
+    public void clickLogin() {
+        loginButton.click();
+    }
+
+    // Método para hacer clic en el botón 'Siguiente'
+    public void clickNext() {
+        nextButton.click();
     }
 }
