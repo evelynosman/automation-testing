@@ -2,11 +2,18 @@ package com.twitter.tests;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.MobileElement;
+import org.openqa.selenium.TakesScreenshot;
+import org.apache.commons.io.FileUtils;
 import org.junit.BeforeClass;
 import org.junit.AfterClass;
+import org.openqa.selenium.OutputType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -43,6 +50,22 @@ public class BaseTest {
         } else {
             logger.info("El driver ya estaba configurado.");
         }
+    }
+
+    public static String takeScreenshot(String testName) {
+        String timestamp = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
+        String screenshotName = testName + "_" + timestamp + ".png";
+        String screenshotPath = "logs/screenshots/" + screenshotName;
+
+        File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        try {
+            FileUtils.copyFile(screenshot, new File(screenshotPath));
+            logger.info("Captura de pantalla guardada en: " + screenshotPath);
+        } catch (IOException e) {
+            logger.error("No se pudo guardar la captura de pantalla: " + e.getMessage());
+        }
+
+        return screenshotPath;
     }
 
     @AfterClass

@@ -29,6 +29,7 @@ public class TwitterNavigationTest extends BaseTest {
         assumeTrue(TwitterLoginTest.isLoginSuccessful);
 
         logger.info("Iniciando prueba de navegación a la sección de Tendencias...");
+        takeScreenshot("Inicio_Prueba_Navegacion_Tendencias");
 
         trendingPage = new TrendingPage(driver);
         WebDriverWait wait = new WebDriverWait(driver, 20);
@@ -37,20 +38,24 @@ public class TwitterNavigationTest extends BaseTest {
             WebElement searchExploreButton = driver.findElementByAccessibilityId("Buscar y explorar");
             searchExploreButton.click();
             logger.info("Clic en icono de tendencias.");
+            takeScreenshot("Clic_Icono_Tendencias");
 
             wait.until(ExpectedConditions.visibilityOf(trendingPage.getTrendingHeader()));
             logger.info("Sección de Tendencias cargada correctamente.");
+            takeScreenshot("Seccion_Tendencias_Cargada");
 
             performVerticalScroll();
 
             WebElement secondTrendingItem = driver.findElement(By.xpath("//androidx.recyclerview.widget.RecyclerView[@resource-id='android:id/list']/android.view.ViewGroup[2]"));
             secondTrendingItem.click();
             logger.info("Clic en un ítem de la lista de Tendencias.");
+            takeScreenshot("Clic_Item_Tendencia");
 
             Thread.sleep(10000);
 
             wait.until(ExpectedConditions.presenceOfElementLocated(By.id("com.twitter.android:id/outer_layout_row_view_tweet")));
             logger.info("Página de la tendencia seleccionada cargada correctamente.");
+            takeScreenshot("Pagina_Tendencia_Cargada");
 
             performVerticalScroll();
             Thread.sleep(5000);
@@ -58,12 +63,14 @@ public class TwitterNavigationTest extends BaseTest {
             WebElement randomItem = driver.findElement(By.id("com.twitter.android:id/tweet_content_text"));
             randomItem.click();
             logger.info("Clic en un tweet aleatorio de la tendencia.");
+            takeScreenshot("Clic_Tweet_Aleatorio");
 
             Thread.sleep(10000);
 
             WebElement tweetElement = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.TextView[@resource-id=\"com.twitter.android:id/tweet_content_view_stub\"]/android.view.View")));
             assertTrue("El tweet no se ha cargado correctamente", tweetElement.isDisplayed());
             logger.info("Detalle del Tweet cargado correctamente.");
+            takeScreenshot("Detalle_Tweet_Cargado");
 
             performVerticalScroll();
             performVerticalScroll();
@@ -71,21 +78,25 @@ public class TwitterNavigationTest extends BaseTest {
             WebElement tweetComment = driver.findElement(By.xpath("(//android.widget.LinearLayout[@resource-id='com.twitter.android:id/outer_layout_row_view_tweet'])[2]"));
             tweetComment.click();
             logger.info("Clic en un comentario del tweet.");
-            
+            takeScreenshot("Clic_Comentario_Tweet");
+
             Thread.sleep(10000);
 
             WebElement likeButton = driver.findElementByAccessibilityId("Me gusta");
             likeButton.click();
             logger.info("Clic en 'Me gusta' del Tweet.");
+            takeScreenshot("Clic_Me_Gusta");
 
             Thread.sleep(5000);
 
             WebElement likedElement = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("com.twitter.android:id/inline_like")));
             assertTrue("El tweet no ha recibido el 'Me gusta' correctamente", likedElement.isDisplayed());
             logger.info("El tweet ha recibido el 'Me gusta' correctamente.");
+            takeScreenshot("Me_Gusta_Exitoso");
 
         } catch (Exception e) {
             logger.error("Error durante la prueba de navegación y 'Me gusta': " + e.getMessage());
+            takeScreenshot("Error_Navegacion_Tendencias");
         }
     }
 
@@ -103,5 +114,6 @@ public class TwitterNavigationTest extends BaseTest {
             .perform();
 
         logger.info("Scroll vertical realizado.");
+        takeScreenshot("Scroll_Vertical_Realizado");
     }
 }
