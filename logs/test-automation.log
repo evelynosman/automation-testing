@@ -1,0 +1,34 @@
+2024-09-17 21:02:25 [main] INFO  com.twitter.tests.TestSuite - Iniciando la siguiente suite de pruebas: TestSuite
+2024-09-17 21:02:25 [main] INFO  com.twitter.tests.BaseTest - Iniciando configuración del driver.
+2024-09-17 21:02:41 [main] INFO  com.twitter.tests.BaseTest - Driver configurado correctamente.
+2024-09-17 21:02:41 [main] INFO  com.twitter.tests.TwitterOpenAppTest - Iniciando la prueba para abrir la app de Twitter...
+2024-09-17 21:02:41 [main] INFO  com.twitter.tests.TwitterOpenAppTest - La app de Twitter se ha abierto correctamente.
+2024-09-17 21:02:41 [main] INFO  com.twitter.tests.BaseTest - Iniciando configuración del driver.
+2024-09-17 21:02:41 [main] INFO  com.twitter.tests.BaseTest - El driver ya estaba configurado.
+2024-09-17 21:02:41 [main] INFO  com.twitter.tests.TwitterLoginTest - Iniciando prueba del modal de Google y pantalla de inicio de sesión...
+2024-09-17 21:02:43 [main] INFO  com.twitter.tests.TwitterLoginTest - El modal de Google está presente. Se procederá a cerrarlo.
+2024-09-17 21:02:44 [main] INFO  com.twitter.tests.TwitterLoginTest - El texto 'Iniciar sesión' está presente.
+2024-09-17 21:02:44 [main] INFO  com.twitter.tests.TwitterLoginTest - Haciendo clic en el enlace Iniciar Sesión
+2024-09-17 21:02:45 [main] INFO  com.twitter.tests.TwitterLoginTest - El clic en el enlace Iniciar Sesión se realizó correctamente.
+2024-09-17 21:02:53 [main] INFO  com.twitter.tests.TwitterLoginTest - Nombre de usuario ingresado y clic en 'Siguiente'.
+2024-09-17 21:03:01 [main] INFO  com.twitter.tests.TwitterLoginTest - Contraseña incorrecta ingresada y clic en 'Iniciar sesion'.
+2024-09-17 21:03:02 [main] INFO  com.twitter.tests.TwitterLoginTest - Mensaje de contraseña incorrecta detectado.
+2024-09-17 21:03:13 [main] INFO  com.twitter.tests.TwitterLoginTest - Contraseña correcta ingresada y clic en 'Iniciar sesion'.
+2024-09-17 21:03:22 [main] INFO  com.twitter.tests.TwitterLoginTest - Inicio de sesión exitoso. Pantalla principal de Twitter cargada.
+2024-09-17 21:03:22 [main] INFO  com.twitter.tests.BaseTest - Iniciando configuración del driver.
+2024-09-17 21:03:22 [main] INFO  com.twitter.tests.BaseTest - El driver ya estaba configurado.
+2024-09-17 21:03:22 [main] INFO  com.twitter.tests.TwitterNavigationTest - Iniciando prueba de navegación a la sección de Tendencias...
+2024-09-17 21:03:25 [main] INFO  com.twitter.tests.TwitterNavigationTest - Clic en icono de tendencias.
+2024-09-17 21:03:29 [main] INFO  com.twitter.tests.TwitterNavigationTest - Sección de Tendencias cargada correctamente.
+2024-09-17 21:03:31 [main] INFO  com.twitter.tests.TwitterNavigationTest - Scroll vertical realizado.
+2024-09-17 21:03:33 [main] INFO  com.twitter.tests.TwitterNavigationTest - Clic en un ítem de la lista de Tendencias.
+2024-09-17 21:03:43 [main] INFO  com.twitter.tests.TwitterNavigationTest - Página de la tendencia seleccionada cargada correctamente.
+2024-09-17 21:03:45 [main] INFO  com.twitter.tests.TwitterNavigationTest - Scroll vertical realizado.
+2024-09-17 21:03:50 [main] INFO  com.twitter.tests.TwitterNavigationTest - Clic en un tweet aleatorio de la tendencia.
+2024-09-17 21:04:02 [main] INFO  com.twitter.tests.TwitterNavigationTest - Detalle del Tweet cargado correctamente.
+2024-09-17 21:04:04 [main] INFO  com.twitter.tests.TwitterNavigationTest - Scroll vertical realizado.
+2024-09-17 21:04:05 [main] INFO  com.twitter.tests.TwitterNavigationTest - Scroll vertical realizado.
+2024-09-17 21:04:07 [main] INFO  com.twitter.tests.TwitterNavigationTest - Clic en un comentario del tweet.
+2024-09-17 21:04:17 [main] INFO  com.twitter.tests.TwitterNavigationTest - Clic en 'Me gusta' del Tweet.
+2024-09-17 21:04:22 [main] INFO  com.twitter.tests.TwitterNavigationTest - El tweet ha recibido el 'Me gusta' correctamente.
+2024-09-17 21:04:22 [main] INFO  com.twitter.tests.TestSuite - Finalizando la suite de pruebas: TestSuite
