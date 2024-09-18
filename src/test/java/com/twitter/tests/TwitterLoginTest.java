@@ -19,7 +19,7 @@ import static org.junit.Assume.assumeTrue;
 public class TwitterLoginTest extends BaseTest {
     public static boolean isLoginSuccessful = false;
 
-    private LoginPage loginPage; // Declaración de loginPage
+    private LoginPage loginPage;
 
     @Test
     public void testLoginModalOrLoginScreen() {
@@ -27,14 +27,11 @@ public class TwitterLoginTest extends BaseTest {
 
         System.out.println("Iniciando prueba del modal de Google o pantalla de inicio de sesión...");
 
-        // Inicializa el WebDriverWait aquí con el tiempo que quieras (por ejemplo, 30 segundos)
         WebDriverWait wait = new WebDriverWait(driver, 30);
 
         try {
             // Inicializar loginPage
-            loginPage = new LoginPage(driver); // Asegúrate de que el constructor de LoginPage reciba el driver correctamente
-
-            // Validar si el modal de Google está presente
+            loginPage = new LoginPage(driver);
             if (isElementPresent(By.id("com.google.android.gms:id/design_bottom_sheet"), 30)) {
                 System.out.println("El modal de Google está presente. Se procederá a cerrarlo.");
                 driver.findElement(By.id("com.google.android.gms:id/cancel")).click(); // Cerrar modal
@@ -49,17 +46,15 @@ public class TwitterLoginTest extends BaseTest {
                         isElementPresent(By.id("com.twitter.android:id/scroll_view_cta"), 30));
             }
 
-            // Verifica si el texto "Iniciar sesión" está presente antes de interactuar con el login
             WebElement loginTextElement = driver.findElement(By.id("com.twitter.android:id/detail_text"));
             assertTrue("El texto para iniciar sesión no está presente.", loginTextElement.isDisplayed());
 
             System.out.println("Haciendo clic en el enlace Iniciar Sesión");
             new TouchAction<>(driver)
-                .tap(PointOption.point(472, 1444)) // Usar PointOption para especificar las coordenadas
+                .tap(PointOption.point(472, 1444))
                 .perform();
             System.out.println("El clic en el enlace Iniciar Sesión se realizó correctamente.");
 
-            // Ahora interactúa con los campos de usuario y contraseña
             Thread.sleep(5000);
             loginPage.enterUsername("Xuserseek");
             loginPage.clickNext();
@@ -70,7 +65,7 @@ public class TwitterLoginTest extends BaseTest {
             wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.Toast[@text='Contraseña incorrecta']")));
 
             loginPage.enterPassword("Xuser-seek");
-            Thread.sleep(10000);  // Espera de 10 segundos antes de hacer clic en Iniciar Sesión
+            Thread.sleep(10000);
             loginPage.clickLogin();
 
             isLoginSuccessful = true;
@@ -82,7 +77,6 @@ public class TwitterLoginTest extends BaseTest {
         }
     }
 
-    // Método actualizado para no necesitar pasar wait como parámetro
     private boolean isElementPresent(By by, int timeoutInSeconds) {
         try {
             WebDriverWait wait = new WebDriverWait(driver, timeoutInSeconds);

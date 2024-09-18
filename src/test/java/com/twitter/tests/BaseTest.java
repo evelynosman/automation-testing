@@ -15,7 +15,7 @@ public class BaseTest {
 
     @BeforeClass
     public static void setUp() throws MalformedURLException {
-        if (driver == null) { // Inicializamos el driver solo si no ha sido inicializado previamente
+        if (driver == null) {
             DesiredCapabilities capabilities = new DesiredCapabilities();
             capabilities.setCapability("platformName", "Android");
             capabilities.setCapability("appium:deviceName", "R9PT413MMPD");
@@ -29,7 +29,7 @@ public class BaseTest {
             capabilities.setCapability("appium:appWaitActivity", "com.twitter.android.*");
 
             // Inicializa el driver
-            driver = new AndroidDriver<>(new URL("http://127.0.0.1:4740/wd/hub"), capabilities);
+            driver = new AndroidDriver<>(new URL("http://127.0.0.1:4750/wd/hub"), capabilities);
             System.out.println("El driver de Appium se ha configurado correctamente.");
         }
     }

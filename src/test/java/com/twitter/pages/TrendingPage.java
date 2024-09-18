@@ -11,7 +11,7 @@ public class TrendingPage {
     private AndroidDriver<MobileElement> driver;
 
     @FindBy(id = "com.twitter.android:id/pinned_header_container")
-    private WebElement trendingHeader; // Mantenerlo privado y acceder a través de un getter
+    private WebElement trendingHeader;
 
     @FindBy(xpath = "//androidx.recyclerview.widget.RecyclerView[@resource-id='android:id/list']/android.view.ViewGroup[2]")
     private WebElement secondTrendingItem;

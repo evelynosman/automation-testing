@@ -13,6 +13,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assume.assumeTrue;
 
@@ -22,7 +23,6 @@ public class TwitterNavigationTest extends BaseTest {
 
     @Test
     public void testNavigateToTrendingWithScrollAndLike() throws InterruptedException {
-        // Verifica que el login fue exitoso antes de continuar
         assumeTrue(TwitterLoginTest.isLoginSuccessful);
 
         System.out.println("Iniciando prueba de navegación a la sección de Tendencias...");
@@ -44,22 +44,28 @@ public class TwitterNavigationTest extends BaseTest {
             Thread.sleep(10000);
 
             wait.until(ExpectedConditions.presenceOfElementLocated(By.id("com.twitter.android:id/outer_layout_row_view_tweet")));
-
             System.out.println("Página de tendencia cargada correctamente.");
 
             performVerticalScroll();
             Thread.sleep(5000);
-            performVerticalScroll();
-
-            WebElement randomItem = driver.findElement(By.xpath("//androidx.recyclerview.widget.RecyclerView[@resource-id='android:id/list']/android.view.ViewGroup[1]"));
+            
+            WebElement randomItem = driver.findElement(By.id("com.twitter.android:id/tweet_content_text"));
             randomItem.click();
 
             Thread.sleep(10000);
-            WebElement tweetElement = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("com.twitter.android:id/outer_layout_row_view_tweet")));
+
+            WebElement tweetElement = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.TextView[@resource-id=\"com.twitter.android:id/tweet_content_view_stub\"]/android.view.View")));
             assertTrue("El tweet no se ha cargado correctamente", tweetElement.isDisplayed());
+            performVerticalScroll();
+            performVerticalScroll();
+
+            WebElement tweetComment = driver.findElement(By.xpath("(//android.widget.LinearLayout[@resource-id='com.twitter.android:id/outer_layout_row_view_tweet'])[2]"));
+            tweetComment.click();
+            Thread.sleep(10000);
 
             WebElement likeButton = driver.findElementByAccessibilityId("Me gusta");
             likeButton.click();
+            Thread.sleep(5000);
 
             WebElement likedElement = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("com.twitter.android:id/inline_like")));
             assertTrue("El tweet no ha recibido el 'Me gusta' correctamente", likedElement.isDisplayed());
@@ -76,7 +82,7 @@ public class TwitterNavigationTest extends BaseTest {
         int startY = 1300;
         int endY = 200;
 
-        // gesto de desplazamiento con TouchAction
+        // Gesto de desplazamiento con TouchAction
         new TouchAction<>(driver)
                 .press(PointOption.point(startX, startY))
                 .waitAction(WaitOptions.waitOptions(Duration.ofSeconds(1)))
