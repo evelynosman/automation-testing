@@ -13,7 +13,7 @@ import org.junit.AfterClass;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING) // Asegura que el orden de ejecución siga el nombre
 @Suite.SuiteClasses({
     TwitterOpenAppTest.class,    // Se ejecuta primero
-    TwitterLoginTest.class,      // Se ejecuta segundo
+    NivoLoginTest.class,      // Se ejecuta segundo
     TwitterNavigationTest.class  // Se ejecuta tercero
 })
 public class TestSuite {

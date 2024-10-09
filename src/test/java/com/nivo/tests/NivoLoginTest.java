@@ -17,12 +17,12 @@ import org.openqa.selenium.TimeoutException;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assume.assumeTrue;
 
-public class TwitterLoginTest extends BaseTest {
+public class NivoLoginTest extends BaseTest {
     public static boolean isLoginSuccessful = false;
 
     private LoginPage loginPage;
 
-    private static final Logger logger = LogManager.getLogger(TwitterLoginTest.class);
+    private static final Logger logger = LogManager.getLogger(NivoLoginTest.class);
 
     @Test
     public void testLoginModalOrLoginScreen() {

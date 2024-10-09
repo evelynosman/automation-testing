@@ -26,7 +26,7 @@ public class TwitterNavigationTest extends BaseTest {
 
     @Test
     public void testNavigateToTrendingWithScrollAndLike() throws InterruptedException {
-        assumeTrue(TwitterLoginTest.isLoginSuccessful);
+        assumeTrue(NivoLoginTest.isLoginSuccessful);
 
         logger.info("Iniciando prueba de navegación a la sección de Tendencias...");
         takeScreenshot("Inicio_Prueba_Navegacion_Tendencias");
