@@ -19,10 +19,10 @@ import java.time.Duration;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assume.assumeTrue;
 
-public class TwitterNavigationTest extends BaseTest {
+public class NivoNavigationTest extends BaseTest {
 
     private TrendingPage trendingPage;
-    private static final Logger logger = LogManager.getLogger(TwitterNavigationTest.class);
+    private static final Logger logger = LogManager.getLogger(NivoNavigationTest.class);
 
     @Test
     public void testNavigateToTrendingWithScrollAndLike() throws InterruptedException {

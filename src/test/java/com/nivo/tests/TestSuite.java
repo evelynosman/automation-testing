@@ -12,9 +12,9 @@ import org.junit.AfterClass;
 @RunWith(Suite.class)
 @FixMethodOrder(MethodSorters.NAME_ASCENDING) // Asegura que el orden de ejecución siga el nombre
 @Suite.SuiteClasses({
-    TwitterOpenAppTest.class,    // Se ejecuta primero
+    NivoOpenAppTest.class,    // Se ejecuta primero
     NivoLoginTest.class,      // Se ejecuta segundo
-    TwitterNavigationTest.class  // Se ejecuta tercero
+    NivoNavigationTest.class  // Se ejecuta tercero
 })
 public class TestSuite {
 

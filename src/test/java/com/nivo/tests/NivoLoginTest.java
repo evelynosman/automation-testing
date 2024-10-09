@@ -26,7 +26,7 @@ public class NivoLoginTest extends BaseTest {
 
     @Test
     public void testLoginModalOrLoginScreen() {
-        assumeTrue(TwitterOpenAppTest.isAppOpened);
+        assumeTrue(NivoOpenAppTest.isAppOpened);
 
         logger.info("Iniciando prueba del modal de Google y pantalla de inicio de sesión...");
         takeScreenshot("Inicio_Prueba_Login");

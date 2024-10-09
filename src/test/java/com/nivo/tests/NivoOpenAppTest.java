@@ -5,11 +5,11 @@ import org.apache.logging.log4j.Logger;
 import org.junit.Test;
 import static org.junit.Assert.assertNotNull;
 
-public class TwitterOpenAppTest extends BaseTest {
+public class NivoOpenAppTest extends BaseTest {
     public static boolean isAppOpened = false;
 
     // Logger para esta clase
-    private static final Logger logger = LogManager.getLogger(TwitterOpenAppTest.class);
+    private static final Logger logger = LogManager.getLogger(NivoOpenAppTest.class);
 
     @Test
     public void openTwitterAppTest() {
