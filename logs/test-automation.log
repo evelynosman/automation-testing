@@ -57,3 +57,14 @@
 2024-09-17 21:55:52 [main] INFO  com.twitter.tests.TwitterNavigationTest - El tweet ha recibido el 'Me gusta' correctamente.
 2024-09-17 21:55:53 [main] INFO  com.twitter.tests.BaseTest - Captura de pantalla guardada en: logs/screenshots/Me_Gusta_Exitoso_20240917215552.png
 2024-09-17 21:55:53 [main] INFO  com.twitter.tests.TestSuite - Finalizando la suite de pruebas: TestSuite
+2024-10-09 17:16:06 [main] INFO  com.nivo.tests.TestSuite - Iniciando la siguiente suite de pruebas: TestSuite
+2024-10-09 17:16:06 [main] INFO  com.nivo.tests.BaseTest - Iniciando configuración del driver.
+2024-10-09 17:16:18 [main] INFO  com.nivo.tests.BaseTest - Driver configurado correctamente.
+2024-10-09 17:16:18 [main] INFO  com.nivo.tests.TwitterOpenAppTest - Iniciando la prueba para abrir la app de Twitter...
+2024-10-09 17:16:18 [main] INFO  com.nivo.tests.BaseTest - Captura de pantalla guardada en: logs/screenshots/Inicio_Prueba_Abrir_App_20241009171618.png
+2024-10-09 17:16:18 [main] INFO  com.nivo.tests.TwitterOpenAppTest - La app de Twitter se ha abierto correctamente.
+2024-10-09 17:16:19 [main] INFO  com.nivo.tests.BaseTest - Captura de pantalla guardada en: logs/screenshots/App_Abrir_Correcto_20241009171618.png
+2024-10-09 17:16:19 [main] INFO  com.nivo.tests.BaseTest - Iniciando configuración del driver.
+2024-10-09 17:16:19 [main] INFO  com.nivo.tests.BaseTest - El driver ya estaba configurado.
+2024-10-09 17:16:19 [main] INFO  com.nivo.tests.TwitterLoginTest - Iniciando prueba del modal de Google y pantalla de inicio de sesión...
+2024-10-09 17:16:20 [main] INFO  com.nivo.tests.BaseTest - Captura de pantalla guardada en: logs/screenshots/Inicio_Prueba_Login_20241009171619.png

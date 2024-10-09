@@ -1,4 +1,4 @@
-package com.twitter.pages;
+package com.nivo.pages;
 
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;

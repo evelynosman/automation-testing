@@ -1,4 +1,4 @@
-package com.twitter.tests;
+package com.nivo.tests;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.MobileElement;

@@ -1,6 +1,6 @@
-package com.twitter.tests;
+package com.nivo.tests;
 
-import com.twitter.pages.TrendingPage;
+import com.nivo.pages.TrendingPage;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;

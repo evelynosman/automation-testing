@@ -1,4 +1,4 @@
-package com.twitter.tests;
+package com.nivo.tests;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

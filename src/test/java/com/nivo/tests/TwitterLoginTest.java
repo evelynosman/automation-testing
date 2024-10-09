@@ -1,6 +1,6 @@
-package com.twitter.tests;
+package com.nivo.tests;
 
-import com.twitter.pages.LoginPage;
+import com.nivo.pages.LoginPage;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.MobileElement;
