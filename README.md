@@ -1,6 +1,6 @@
-# Proyecto de Pruebas Automatizadas - Twitter App
+# Proyecto de Pruebas Automatizadas - Nivo App
 
-Este proyecto es una prueba técnica de automatización con appium para interactuar con la aplicación de Twitter en Android. El objetivo es verificar ciertos flujos en la app de Twitter con un dispositivo real.
+Este proyecto de automatización con appium para interactuar con la aplicación de Nivo en Android. El objetivo es verificar ciertos flujos en la app de Nivo con un dispositivo real.
 
 ## Tecnologías Utilizadas
 
@@ -45,14 +45,14 @@ Para ejecutar las pruebas en un dispositivo Android, se debe tener Appium instal
 {
   "platformName": "Android",
   "appium:deviceName": "consultar con adb devices",
-  "appium:appPackage": "com.twitter.android",
-  "appium:appActivity": "com.twitter.android.StartActivity",
+  "appium:appPackage": "com.meridiangroupsa.nivo",
+  "appium:appActivity": "com.meridiangroupsa.nivo.MainActivity",
   "appium:noReset": true,
   "appium:autoLaunch": false,
   "appium:fullReset": false,
   "appium:newCommandTimeout": 300,
   "appium:dontStopAppOnReset": true,
-  "appium:appWaitActivity": "com.twitter.android.*"
+  "appium:appWaitActivity": "com.meridiangroupsa.nivo.*"
 }
 ).
 
@@ -64,7 +64,7 @@ mvn clean test
 
 
 Estructura del Proyecto
-src/test/java/com/twitter/tests/TwitterOpenAppTest.java: Contiene la prueba que abre la aplicación de Twitter en un dispositivo Android.
+src/test/java/com/nivo/tests/NivoOpenAppTest.java: Contiene la prueba que abre la aplicación de Nivo en un dispositivo Android.
 pom.xml: Contiene todas las dependencias y configuraciones de Maven.
 
 Requisitos

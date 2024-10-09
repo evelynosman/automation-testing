@@ -31,14 +31,14 @@ public class BaseTest {
             DesiredCapabilities capabilities = new DesiredCapabilities();
             capabilities.setCapability("platformName", "Android");
             capabilities.setCapability("appium:deviceName", "R9PT413MMPD");
-            capabilities.setCapability("appium:appPackage", "com.twitter.android");
-            capabilities.setCapability("appium:appActivity", "com.twitter.android.StartActivity");
+            capabilities.setCapability("appium:appPackage", "com.meridiangroupsa.nivo");
+            capabilities.setCapability("appium:appActivity", "com.meridiangroupsa.nivo.MainActivity");
             capabilities.setCapability("appium:noReset", true);
             capabilities.setCapability("appium:autoLaunch", true);
             capabilities.setCapability("appium:fullReset", false);
             capabilities.setCapability("appium:newCommandTimeout", 300);
             capabilities.setCapability("appium:dontStopAppOnReset", true);
-            capabilities.setCapability("appium:appWaitActivity", "com.twitter.android.*");
+            capabilities.setCapability("appium:appWaitActivity", "com.meridiangroupsa.nivo.*");
 
             try {
                 driver = new AndroidDriver<>(new URL("http://127.0.0.1:4750/wd/hub"), capabilities);
