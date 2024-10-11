@@ -13,17 +13,17 @@ public class NivoOpenAppTest extends BaseTest {
 
     @Test
     public void openTwitterAppTest() {
-        logger.info("Iniciando la prueba para abrir la app de Twitter...");
+        logger.info("Iniciando la prueba para abrir la app Nivo...");
         takeScreenshot("Inicio_Prueba_Abrir_App");
 
         // Verifica que el driver no sea null
         try {
             assertNotNull(driver);
             isAppOpened = true;
-            logger.info("La app de Twitter se ha abierto correctamente.");
+            logger.info("La app de Nivo se ha abierto correctamente.");
             takeScreenshot("App_Abrir_Correcto");
         } catch (AssertionError e) {
-            logger.error("Error al abrir la app de Twitter: el driver es null.");
+            logger.error("Error al abrir la app de Nivo: el driver es null.");
             takeScreenshot("Error_Abrir_App");
             throw e; // Lanza la excepción para que la prueba falle
         }

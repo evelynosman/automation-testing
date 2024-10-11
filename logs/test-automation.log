@@ -1,0 +1,11 @@
+2024-10-11 14:14:44 [main] INFO  com.nivo.tests.TestSuite - Iniciando la siguiente suite de pruebas: TestSuite
+2024-10-11 14:14:44 [main] INFO  com.nivo.tests.BaseTest - Iniciando configuración del driver.
+2024-10-11 14:14:55 [main] INFO  com.nivo.tests.BaseTest - Driver configurado correctamente.
+2024-10-11 14:14:55 [main] INFO  com.nivo.tests.NivoOpenAppTest - Iniciando la prueba para abrir la app Nivo...
+2024-10-11 14:14:56 [main] INFO  com.nivo.tests.BaseTest - Captura de pantalla guardada en: logs/screenshots/Inicio_Prueba_Abrir_App_20241011141455.png
+2024-10-11 14:14:56 [main] INFO  com.nivo.tests.NivoOpenAppTest - La app de Nivo se ha abierto correctamente.
+2024-10-11 14:14:57 [main] INFO  com.nivo.tests.BaseTest - Captura de pantalla guardada en: logs/screenshots/App_Abrir_Correcto_20241011141456.png
+2024-10-11 14:14:57 [main] INFO  com.nivo.tests.BaseTest - Iniciando configuración del driver.
+2024-10-11 14:14:57 [main] INFO  com.nivo.tests.BaseTest - El driver ya estaba configurado.
+2024-10-11 14:14:57 [main] INFO  com.nivo.tests.NivoLoginTest - Iniciando prueba del modal de Google y pantalla de inicio de sesión...
+2024-10-11 14:14:58 [main] INFO  com.nivo.tests.BaseTest - Captura de pantalla guardada en: logs/screenshots/Inicio_Prueba_Login_20241011141457.png

@@ -41,7 +41,8 @@ El proyecto utiliza varias dependencias necesarias para ejecutar las pruebas aut
 </dependencies>
 
 Configuración de Appium
-Para ejecutar las pruebas en un dispositivo Android, se debe tener Appium instalado y configurado detalles de configuracion (Server Address: localhost, Server Port: 4725, check: Allow CORS, check: Relaxed Security), configuracion appium inspector (Server Address: localhost, Server Port: 4725, Remote Path: /wd/hub, Advanced Settings: check: Allow Unauthorized Certificates, JSON Representation: 
+Para ejecutar las pruebas en un dispositivo Android, se debe tener Appium instalado y configurado detalles de configuracion (Server Address: localhost, Server Port: 4750, check: Allow CORS, check: Relaxed Security), configuracion appium inspector (Server Address: localhost, Server Port: 4750, Remote Path: /wd/hub, Advanced Settings: check: Allow Unauthorized Certificates, JSON Representation:
+
 {
   "platformName": "Android",
   "appium:deviceName": "consultar con adb devices",
@@ -56,15 +57,15 @@ Para ejecutar las pruebas en un dispositivo Android, se debe tener Appium instal
 }
 ).
 
-appium -p 4725
+appium -p 4750 (lo puedes ajustar a cualquier otro puerto si lo tiene ocupado)
 
 Ejecución de las pruebas
 
-mvn clean test
-
+mvn -Dtest=TestSuite test
 
 Estructura del Proyecto
 src/test/java/com/nivo/tests/NivoOpenAppTest.java: Contiene la prueba que abre la aplicación de Nivo en un dispositivo Android.
+
 pom.xml: Contiene todas las dependencias y configuraciones de Maven.
 
 Requisitos
@@ -74,4 +75,4 @@ Appium: Debes instalar Appium globalmente en tu sistema.
 Dispositivo Android o Emulador: Asegúrate de tener el dispositivo conectado y depuración USB habilitada.
 
 Autor
-Nombre del autor: Evelyn Osman
+Nombre del autor: Alejandra Nuñez
